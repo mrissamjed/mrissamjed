@@ -1,12 +1,3 @@
-
-// $(document).ready(function(){
-//     $('button').click(function(){
-//      $('ul').toggleClass('active')   
-//     })
-// })
-
-
-
 function each(array, func) { 
     for (var i = 0; i < array.length; i++) { 
           func(array[i], i); 
@@ -18,9 +9,9 @@ function each(array, func) {
 function filter(array, predicate) {
  var acc = [];
  each(array, function (element, index) {
-   // notice we added the index here
+  
    if (predicate(element, index)) {
-     // notice we added the index here
+    
      acc.push(element);
    }
  });
@@ -55,10 +46,13 @@ function MakePlaylist(namee) {
     obj.list=[]
     obj.add=addSong
     obj.remove=removeSong
-    obj.display=displaySong
+    // obj.display=displaySong
+    obj.next=getNextSong
 
 return obj  
 }
+
+// $("title").text("My Shop")
 
 var addSong = function(name,images,songs,category) {
     var singsong= MakeSomething(name,images,songs,category)
@@ -66,9 +60,9 @@ var addSong = function(name,images,songs,category) {
 }
 
 
-var removeSong = function(genre) {
+var removeSong = function(singerr) {
     this.list =  filter(this.list,function(element,i){
-        return element.category!== genre
+        return element.singer!== singerr
     })
     }
     
@@ -88,21 +82,36 @@ var removeSong = function(genre) {
 
 
     console.log(track.list)
-    track.remove("rock")
+    track.remove("NF")
     console.log(track.list)
 
 
-    var displaySong = function(categoryy) {
-        var arr = []
-        each(this.list,function(element){
-            if (element.category ===categoryy) {
-                arr.push(element)
-            } 
-        })
-        console.log(arr)  
-    }
+    // var currentIndex =0
+    // function getNextSong() {
+    // currentIndex=(currentIndex+1)%track.songs.length
+    // $("body").html('src',track.song[currentIndex])
+    // };
+    // // $("body").html("<audio id='mp3' src = " + track.songs[0]  + "</audio>")
+    // // $("#mp3").on("click",track.getNextSong)
+    
 
+
+    // var displaySong = function(categoryy) {
+    //     var arr = []
+    //     each(this.list,function(element){
+    //         if (element.category ===categoryy) {
+    //             arr.push(element)
+    //         } 
+    //     })
+    //     console.log(arr)  
+    // }
 
 
     
 
+
+    // ('#remove').on("click",removeSong)
+
+    // $('button').click(function(){
+    //     $('ul').toggleClass('active')   
+    //    })
